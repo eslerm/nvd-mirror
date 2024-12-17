@@ -6,7 +6,7 @@ Maintained using [nvd-api-client](https://github.com/eslerm/nvd-api-client).
 
 ## git blame
 
-For git blame history before the 2024-12-17 nested JSON reformat, run git-blame with `--ignore-rev 659116f2321` or configure [blame.ignoreRevsFile](blame.ignoreRevsFile):
+For git blame history before the 2024-12-17 nested JSON reformat, run git-blame with `--ignore-rev 659116f2321` or configure `blame.ignoreRevsFile`:
 ```
 git config blame.ignoreRevsFile .git-blame-ignore-revs
 ```
