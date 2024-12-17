@@ -4,6 +4,15 @@ A mirror of CVE json provided by [NVD's API 2.0](https://nvd.nist.gov/general/ne
 
 Maintained using [nvd-api-client](https://github.com/eslerm/nvd-api-client).
 
+## git blame
+
+For git blame history before the 2024-12-17 nested JSON reformat, run git-blame with `--ignore-rev 659116f2321` or configure [blame.ignoreRevsFile](blame.ignoreRevsFile):
+```
+git config blame.ignoreRevsFile .git-blame-ignore-revs
+```
+
+(See Rob Allen's [Ignoring mass reformatting commits with git blame](https://akrabat.com/ignoring-revisions-with-git-blame/))
+
 ## Other CVE Data Resources
 
 The CVE Program's [cvelistV5](https://github.com/CVEProject/cvelistV5) is the upstream source of truth for all CVE data. CNAs send data directly to the CVE Program. NVD's data is based on the CVE List, but may contain additional information such as NVD severity scoring or CWEs. NVD also fixes errors in the [CVE List data set](https://github.com/mprpic/cvelint).
