@@ -1,11 +1,10 @@
 name: update NVD mirror
 
-on: workflow_dispatch
-# NOTE: NVD requests that automated requests only be made every two hours.
+# NOTE: NVD asks that automated requests only be made every two hours.
 #       https://nvd.nist.gov/developers/start-here
-#on:
-#  schedule:
-#    - cron: '42 0/2 * * *' 
+on:
+  schedule:
+    - cron: '42 0/2 * * *' 
 
 jobs:
   commit:
