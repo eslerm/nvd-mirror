@@ -35,6 +35,6 @@ jobs:
         git config --global user.name "NVD mirror update 🤖"
         git config --global user.email "mark.esler@canonical.com"
         git add *
-        git commit -m '🤖 NVD update at $(date +"%Y-%m-%dT%H:%M:%S%z")'
+        git commit -m "🤖 NVD update at $(date +'%Y-%m-%dT%H:%M:%S%z')"
         git push
 
