@@ -1,0 +1,40 @@
+name: update NVD mirror
+
+on: workflow_dispatch
+# NOTE: NVD requests that automated requests only be made every two hours.
+#       https://nvd.nist.gov/developers/start-here
+#on:
+#  schedule:
+#    - cron: '42 0/2 * * *' 
+
+jobs:
+  commit:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: checkout nvd-api-client
+      uses: actions/checkout@v4
+      with:
+        repository: eslerm/nvd-api-client
+        path: nvd-api-client
+
+    - name: checkout nvd-mirror
+      uses: actions/checkout@v4
+      with:
+        ref: main 
+        repository: eslerm/nvd-mirror
+        path: nvd-mirror
+
+    - name: run nvd-api-client
+      run: |
+        ./nvd-api-client/nvd_api_client.py --debug --auto --path nvd-mirror/
+
+    - name: commit changes
+      run: |
+        cd nvd-mirror/
+        git config --global user.name "NVD mirror update 🤖"
+        git config --global user.email "mark.esler@canonical.com"
+        git add *
+        git commit -m "🤖 NVD update at $(date)"
+        git push
+
